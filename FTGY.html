@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From The Golden Years</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: white;
+            cursor: url('Cursor.png'), auto; /* Add your custom cursor */
+        }
+        h1   {color: rgb(0, 0, 0);}
+        p    {color: rgb(0, 0, 0);}
+        </style>
+</head>
+<body>
+    <header style="text-align: center;">
+        <img src="FTGY HEADER LOGO.png" alt="Greetings, From The Golden Years">
+    </header>
+<p style="text-align: center;">
+    <img src="POSTCARD  lo w res.png" alt="Greetings, From The Golden Years">
+</p>
+ 
+<!-- start -->
+ <div class="signup-content" style="text-align: center;">
+    <p> <strong> Reserve Your Escape Today!</strong></p>
+    <form id="signup-form" class="signup-form">
+        <div class="form-group">
+            <input type="text" class="form-input" name="name" id="name" placeholder="Name"/>
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" id="submit-form">Submit</button>
+        </div>
+    </form>
+</div>
+<!-- end -->
+
+<script>
+$form = $('form#signup-form'),
+url = 'https://script.google.com/macros/s/AKfycbyMiKM_-ZBowwnTJmmnqIr536F62ZogYj6Z_22lyffo9O_JLbcMxmK5gVVJOVuf7chv/exec';
+
+$.validate({
+  lang: 'en'
+});
+
+$('#signup-form').on('submit', function(e) {
+  e.preventDefault();
+  
+  const el = $(this);
+  const submitButton = $(el).find('button');
+  const name = el.find('input[name="name"]').val();
+  const email = el.find('input[name="email"]').val();
+
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    data: $('#signup-form').serialize(),
+    beforeSend: function(){
+      submitButton.attr('disabled',true);
+      submitButton.text('sending....');
+    },
+    success:function(data) {
+      swal("Thank you for submit your data!", "", "success");
+      submitButton.attr('disabled',false);
+      submitButton.text('Submit');
+    } 
+  });
+});
+</script>
+
+</script>
+ <script>
+ new WOW().init();
+</script>
+
+ <script type="text/javascript">
+   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+ anchor.addEventListener('click', function (e) {
+     e.preventDefault();
+
+     document.querySelector(this.getAttribute('href')).scrollIntoView({
+         behavior: 'smooth'
+     });
+ });
+});
+
+</script>
+<main>
+    <p style="text-align: center; white-space: pre-wrap;">
+       <i> We will be taking reservations all summer long! 
+        There are only a limited number<small>*</small> of reservations we can accept. 
+        If you are approved, you are free to share your copy of ‘From The Golden Years’ with anyone you choose<small>**</small>
+
+        With love,
+        From The Golden Years</i>
+    </p>
+</main>
+
+<p style="text-align: center;">
+    <small>*small digital batches of 10-20 will be released throughout the summer.
+
+    ** Once you have obtained a copy of ‘From The Golden Years’ it is yours to do with as you please. We encourage all participants to directly share their copy with at least one person. 
+    
+    This promotion is free and will not harvest your data or spam you with unsolicited emails/texts. </small>
+</p>
+
+<footer style="text-align: center;">
+    <p>&copy; From The Golden Years</p>
+</footer>
+<script src="js/script.js"></script>
+
+</body>
+</html>
