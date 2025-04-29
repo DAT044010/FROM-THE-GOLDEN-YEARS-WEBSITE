@@ -16,50 +16,38 @@
         </style>
 </head>
 <body>
-    <html>
-    <head style="text-align: center;">
-        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-        <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0;  user-scalable=0;" name="viewport">
-        <link rel="stylesheet" href="../includes/style.css">
-    </head>
-    <body width = "device-width" style="align: center;">
-        <img class="test"  src="FTGY HEADER LOGO.png" alt="Greetings, From The Golden Years">
-    </body>
-   
+    <header style="text-align: center;" max-width: 100%;>
+        <img class="img-fluid" src="FTGY HEADER LOGO.png" alt="Greetings, From The Golden Years">
+    </header>
 <p style="text-align: center;">
     <img src="POSTCARD  lo w res.png" alt="Greetings, From The Golden Years">
 </p>
-
+ 
 <body>
-  <div class="container">
-    <form method="post" action="https://script.google.com/macros/s/AKfycbwQvahGFr_sye393EzZF-Yp7Lm5zp9tMSVULXzxNZ1LQUPk0GLWLZ3drQXb7otCb68GpA/exec" name="contact-form">
-      <h4><strong> Reserve Your Escape Today!</strong></h4>
-      <input type="text" name="your-name" placeholder="Name">
-      <input type="email" name="your-email" placeholder="Email">
-      <textarea name="message" rows="7" placeholder="Your Message">
-      </textarea>
-      <input type="submit" value="Submit" id="submit">
-		</form>
-	</div>
+    <div class="container" style="text-align: center;">
+      <form method="post" action="https://script.google.com/macros/s/AKfycbz-Mur8myfcaV0kYpKl3RKTpG1z6AT0C7IkKZMCgtjxPYH9yd8vB2XUeYuk0cJVTG7vKw/exec" name="contact-form">
+        <h4>Reserve Your Escape Today!</h4>
+        <input type="text" name="your-name" placeholder="Name">
+        <input type="email" name="your-email" placeholder="Email">
+        <input type="submit" value="Submit" id="submit">
+      </form>
+    </div>
 </body>
-<!-- start -->
- <div class="signup-content" style="text-align: center;">
-    <p> <strong> Reserve Your Escape Today!</strong></p>
-    <form id="signup-form" class="signup-form">
-        <div class="form-group">
-            <input type="text" class="form-input" name="name" id="name" placeholder="Name"/>
-        </div>
-        <div class="form-group">
-            <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
-        </div>
 
-        <div class="form-group">
-            <button type="submit" id="submit-form">Submit</button>
-        </div>
-    </form>
-</div>
-<!-- end -->
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbz-Mur8myfcaV0kYpKl3RKTpG1z6AT0C7IkKZMCgtjxPYH9yd8vB2XUeYuk0cJVTG7vKw/exec';
 
+  const form = document.forms['contact-form'];
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => alert("Thank you! Form is submitted"))
+      .then(() => { window.location.reload(); })
+      .catch(error => console.error('Error!', error.message));
+  });
+</script>
 <main>
     <p style="text-align: center; white-space: pre-wrap;">
        <i> We will be taking reservations all summer long! 
